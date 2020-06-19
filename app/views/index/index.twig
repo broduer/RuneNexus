@@ -47,6 +47,8 @@
                     </div>
                 </div>
             </div>
+            
+            <p>{{ content|raw }}</p>
 
             <div class="card border-0 shadow-sm overflow-hidden mb-5">
                 <div class="card-header bg-gradient-primary text-white py-3">
@@ -63,7 +65,9 @@
                         </td>
                         <td class="py-4">
                             <a href="#" class="banner-img">
-                                <img data-src="{{ url('public/img/banner-'~theme~'.png') }}"
+                                <img
+                                    src="{{ url('public/img/banner-loading.png') }}" 
+                                    data-src="{{ url('public/img/banner-'~theme~'.png') }}"
                                     id="banner"
                                     alt="{{ url(theme~'.png') }}"
                                     class="img-fluid rounded lazy">
@@ -89,7 +93,9 @@
                         </td>
                         <td class="py-4">
                             <a href="#" class="banner-img">
-                                <img data-src="{{ url('public/img/banner-'~theme~'.png') }}"
+                                <img
+                                    src="{{ url('public/img/banner-loading.png') }}" 
+                                    data-src="{{ url('public/img/banner-'~theme~'.png') }}"
                                     id="banner"
                                     alt="{{ url(theme~'.png') }}"
                                     class="img-fluid rounded lazy">
@@ -115,7 +121,9 @@
                         </td>
                         <td class="py-4">
                             <a href="#" class="banner-img">
-                                <img data-src="{{ url('public/img/banner-'~theme~'.png') }}"
+                                <img
+                                    src="{{ url('public/img/banner-loading.png') }}" 
+                                    data-src="{{ url('public/img/banner-'~theme~'.png') }}"
                                     id="banner"
                                     alt="{{ url(theme~'.png') }}"
                                     class="img-fluid rounded lazy">
@@ -135,9 +143,10 @@
                             </div>
                         </td>
                     </tr>
-
                 </table>
             </div>
+
+            
 
 
             <div class="card border-0 shadow-sm overflow-hidden mb-2">
@@ -327,8 +336,6 @@
                     </li>
                 </ul>
             </nav>
-
-            {{ content|raw }}
         </div>
     </div>
 </div>

@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.87, shrink-to-fit=no">
 
     <link rel="stylesheet" type="text/css" href="{{ stylesheet('argon.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ stylesheet('custom.css?v='~time()) }}" />
+    <link rel="stylesheet" type="text/css" href="{{ stylesheet('custom.css') }}" />
 
     {% if darkmode is defined and darkmode %}
     <link rel="stylesheet" type="text/css" href="{{ stylesheet('bootstrap.dark.css') }}" />
@@ -52,7 +52,7 @@
     <script type="text/javascript" src="{{ javascript('queue.js') }}"></script>
     <script type="text/javascript" src="{{ javascript('custom.js') }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js" defer></script>
     <link rel="stylesheet" type="text/css" href="{{ stylesheet('quill.snow.css') }}" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->

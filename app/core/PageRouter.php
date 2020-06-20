@@ -180,6 +180,13 @@ class PageRouter extends Router {
         $this->get("nyan", function() {
             return $this->setRoute('pages', 'nyan');
         });
+
+        /**
+         * Sponsor Spots
+         */
+        $this->get("sponsor", function() {
+            return $this->setRoute('sponsor', 'index');
+        });
     }
 
     public function setRoute($controller, $method, $params = []) {

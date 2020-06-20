@@ -87,8 +87,8 @@ class Controller {
         $canAccess = Security::canAccess($controller, $action, $roles);
 
         if (!$canAccess) {
-            
-            
+            $this->setView("errors/show401");
+            return true;
         }
 
         $darkMode = false;
@@ -141,6 +141,12 @@ class Controller {
                 'privacy' => [
                     'title' => 'Privacy Policy',
                     'meta'  => 'Our privacy policy.'
+                ]
+            ],
+            'sponsor' => [
+                'index' => [
+                    'title' => 'Sponsored Ads',
+                    'meta' => 'Sponsored ad spots that place you above all other on every page of the main listing.'
                 ]
             ]
         ];

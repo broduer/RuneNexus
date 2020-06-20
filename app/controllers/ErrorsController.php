@@ -3,7 +3,6 @@ class ErrorsController extends Controller {
 
     public function index() {
 
-        
     }
 
     public function show404() {

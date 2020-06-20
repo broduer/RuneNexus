@@ -61,7 +61,7 @@
                 <table class="table mb-0" style="line-height:.7em;">
                     <tr id="server" class="{{ class }}">
                         <td class="text-center rank-col">
-                            <i class="fas fa-star fa-lg" style="color:gold;"></i>
+                            <i class="fad fa-ad fa-2x text-muted"></i>
                         </td>
                         <td class="py-4">
                             <a href="#" class="banner-img">
@@ -89,7 +89,7 @@
                     </tr>
                     <tr id="server" class="{{ class }}">
                         <td class="text-center rank-col">
-                            <i class="fas fa-star fa-lg" style="color:gold;"></i>
+                            <i class="fad fa-ad fa-2x text-muted"></i>
                         </td>
                         <td class="py-4">
                             <a href="#" class="banner-img">
@@ -117,7 +117,7 @@
                     </tr>
                     <tr id="server" class="{{ class }}">
                         <td class="text-center rank-col">
-                            <i class="fas fa-star fa-lg" style="color:gold;"></i>
+                            <i class="fad fa-ad fa-2x text-muted"></i>
                         </td>
                         <td class="py-4">
                             <a href="#" class="banner-img">
@@ -150,7 +150,7 @@
 
 
             <div class="card border-0 shadow-sm overflow-hidden mb-2">
-                <div class="card-header bg-{{ theme == "dark" ? "dark" : "white" }} text-{{ theme == "dark" ? "white" : "dark" }} py-3">
+                <div class="card-header bg-gradient-primary text-white py-3">
                     Runescape Private Servers
                 </div>
 
@@ -184,8 +184,12 @@
                                 </div>
                             {% endif %}
 
-                            <a href="{{ url('details/'~server_url) }}" class="d-block mb-0 truncate-title">
+                            <a href="{{ url('details/'~server_url) }}">
+                                {% if server.title|length > 40 %}
+                                {{ substr(server.title, 0, 40)~'...' }}
+                                {% else %}
                                 {{ server.title }}
+                                {% endif %}
                             </a>
 
                             {% if server.banner_url %}

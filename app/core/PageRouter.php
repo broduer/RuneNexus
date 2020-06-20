@@ -44,6 +44,7 @@ class PageRouter extends Router {
         $this->all('vote/([0-9]+)/([A-Za-z0-9\-_]+)', function($serverId, $incentive) {
             return $this->setRoute('vote', 'index', ['serverId' => $serverId, 'incentive' => $incentive]);
         });
+
         $this->all('vote/([0-9]+)-([A-Za-z0-9\-]+)/([A-Za-z0-9\-_]+)', function($serverId, $title, $incentive) {
             return $this->setRoute('vote', 'index', ['serverId' => $serverId, 'incentive' => $incentive]);
         });
@@ -157,6 +158,10 @@ class PageRouter extends Router {
 
         $this->all('details/([0-9]+)-([A-Za-z0-9\-]+)/([A-Za-z0-9\-]+)', function($id, $title, $rate) {
             return $this->setRoute('index', 'details', ['serverId' => $id, 'rate' => $rate]);
+        });
+
+        $this->all('servers/view/([0-9]+)-([A-Za-z0-9\-]+)', function($id, $title) {
+            return $this->setRoute('index', 'details',  ['serverId' => $id, 'page' => 1]);
         });
 
         /**

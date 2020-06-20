@@ -187,6 +187,17 @@ class PageRouter extends Router {
         $this->get("sponsor", function() {
             return $this->setRoute('sponsor', 'index');
         });
+        $this->all('sponsor/button', function() {
+            return $this->setRoute('sponsor', 'button');
+        });
+
+        $this->all('sponsor/process', function() {
+            return $this->setRoute('sponsor', 'process');
+        });
+        
+        $this->all('sponsor/verify', function() {
+            return $this->setRoute('sponsor', 'verify');
+        });
     }
 
     public function setRoute($controller, $method, $params = []) {

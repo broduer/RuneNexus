@@ -22,13 +22,16 @@ class Security {
             'sponsor' => ['index'],
             'login'   => ['index', 'discord', 'auth', 'dauth'],
             'errors'  => ['show404', 'show500', 'show401', 'missing'],
-            'pages'   => ['docs', 'updates', 'stats'],
+            'pages'   => ['docs', 'updates', 'stats', 'terms', 'privacy'],
+            'tootls'  => ['items']
         ];
 
         $private = [
             'servers' => ['add', 'edit', 'delete'],
             'premium' => ['button', 'verify', 'process'],
-            'profile' => ['index']
+            'sponsor' => ['button', 'verify', 'process'],
+            'profile' => ['index'],
+            
         ];
 
         foreach ($public as $controller => $actions) {

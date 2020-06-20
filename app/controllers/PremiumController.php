@@ -256,21 +256,10 @@ class PremiumController extends Controller {
         ];
     }
 
-    public $access =  [
-        'login_required' => true,
-        'roles'  => ['member', 'moderator', 'admin']
-    ];
-
     public function beforeExecute() {
         if ($this->getActionName() == "button" || $this->getActionName() == "process" || $this->getActionName() == "verify") {
             $this->disableView(true);
-        } else {
-            $this->access = [
-                'login_required' => false,
-                'roles'  => []
-            ];
         }
-
         return parent::beforeExecute();
     }
 }

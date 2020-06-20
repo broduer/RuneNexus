@@ -29,9 +29,22 @@ class IndexController extends Controller {
             $this->set("page_title", "Servers");
         }
 
+        $sponsors = Sponsors::select([
+                'sponsors.id',
+                'servers.title', 
+                'servers.website', 
+                'servers.discord_link', 
+                'servers.banner_url'
+            ])    
+            ->where('expires', '>', time())
+            ->where('servers.banner_url', '!=', null)
+            ->where('servers.website', '!=', null)
+            ->leftJoin("servers", "servers.id", "=", "sponsors.server_id")
+            ->get();
+
         $this->set("servers", $servers);
         $this->set("revisions", $revisions);
-        
+        $this->set("sponsors", $sponsors);
     	return true;
     }
 

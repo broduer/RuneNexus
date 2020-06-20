@@ -18,3 +18,4 @@ app/crons/cron.log
 # composer.lock
 crons/cron.log
 sitemap.xml
+robots.txt

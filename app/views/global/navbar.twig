@@ -55,13 +55,25 @@
                     </li>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('docs') }}">Documentation</a>
+                    <a class="nav-link" href="{{ url('docs') }}">Docs</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('updates') }}">Update Log</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('stats') }}">Stats</a>
+                </li>
+                <li class="nav-item">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Tools
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ url('tools/items') }}">
+                                Osrs Item DB
+                            </a>
+                        </div>
+                    </li>
                 </li>
             </ul>
 

@@ -23,7 +23,7 @@ class Security {
             'login'   => ['index', 'discord', 'auth', 'dauth'],
             'errors'  => ['show404', 'show500', 'show401', 'missing'],
             'pages'   => ['docs', 'updates', 'stats', 'terms', 'privacy'],
-            'tootls'  => ['items']
+            'tools'  => ['itemdb']
         ];
 
         $private = [

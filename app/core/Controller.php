@@ -148,6 +148,12 @@ class Controller {
                     'title' => 'Sponsored Ads',
                     'meta' => 'Sponsored ad spots that place you above all other on every page of the main listing.'
                 ]
+            ],
+            'tools' => [
+                'itemdb' => [
+                    'title' => 'Osrs Item DB',
+                    'meta' => 'An easy to use oldschool runescape item db that\'s always up to date.'
+                ]
             ]
         ];
 

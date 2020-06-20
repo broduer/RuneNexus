@@ -1,13 +1,13 @@
 <?php
+use Fox\Paginator;
+
 class ToolsController extends Controller {
 
     public function itemdb() {
 
     }
 
-    public function searchAction() {
-        $this->view->setRenderLevel(View::LEVEL_ACTION_VIEW);
-
+    public function search() {
         $data   = $this->getItemList();
         $search = $this->request->getPost("search", "string");
         $found  = [];
@@ -23,51 +23,56 @@ class ToolsController extends Controller {
             $found = $data;
         }
 
-        $itemList = (new NativeArray([
-            'data'  => $found,
-            'limit' => 50,
-            'page'  => $this->request->getPost("page", "int", 1)
-        ]))->getPaginate();
+        $pageNum   = $this->request->getPost("page", "int");
+        $paginator = (new Paginator($found, $pageNum, 20))->paginate();
+        $results   = $paginator->getResults();
 
-        $this->view->icon_url = 'https://www.osrsbox.com/osrsbox-db/items-icons/';
-        $this->view->itemList = $itemList;
+        foreach($results['items'] as $item) {
+            if (!file_exists('public/img/items/'.$item['id'].'.png')) {
+                $this->getImage($item['id']);
+            }
+        }
+
+        $this->set("results", $results);
     }
 
     private function getItemList() {
-        $cache    = new BackFile(new FrontData(), ['cacheDir' =>  $path.'/app/compiled/']);
-        $itemList = $cache->get("items.data.cache", 86400);
+        $cache    = new Cache("osrs-item-db", 86400);
+        $itemList = $cache->get();
 
         if (!$itemList) {
-            $itemList = $this->getFile();
+            $itemList = array_values($this->getFile());
 
             if (!$itemList) {
-                return json_decode(file_get_contents($path.'/resources/item-data.json'), true);
+                return $cache->getData();
             }
 
-            $oldData = $itemList;
-            $itemList = [];
-
-            foreach ($oldData as $key => $value) {
-                $itemId   = $value['id'];
-                $itemName = $value['name'];
-                $itemList[]   = ['id' => $itemId, 'name' => $itemName];
-            }
-
-            file_put_contents($path.'/resources/item-data.json', json_encode($itemList));
-            $cache->save("items.data.cache", $itemList);
+            $cache->save($itemList);
         }
 
         return $itemList;
     }
 
     private function getFile() {
-        $url = 'https://www.osrsbox.com/osrsbox-db/items-summary.json';
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_HEADER, false);
-        $data = curl_exec($curl);
-        curl_close($curl);
-        return json_decode($data, true);
+        try {
+            $client = new GuzzleHttp\Client();
+            $resp   = $client->get('https://www.osrsbox.com/osrsbox-db/items-summary.json');
+            return array_values(json_decode($resp->getBody(), true));
+        } catch(Exception $e) {
+            return null;
+        }
     }
+
+    public function getImage($itemId) {
+        try {
+            $client = new GuzzleHttp\Client();
+            $resp   = $client->get("https://www.osrsbox.com/osrsbox-db/items-icons/{$itemId}.png", [
+                'save_to' => 'public/img/items/'.$itemId.'.png'
+            ]);
+            return true;
+        } catch(Exception $e) {
+            return null;
+        }
+    }
+
 }

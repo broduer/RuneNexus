@@ -419,17 +419,18 @@ table.blur-table tr {
     background-color: #3c4d69 !important;
 }
 .search-box {
-    max-width: 550px;
-    margin:auto;
+    max-width: 550px !important;
 }
-.search-box .inline-form {
-    position: relative;
+.search-box form {
+    width:400px;
+    position: relative !important;
 }
-.search-box .inline-form input.form-control {
-    padding-right: 120px;
+.search-box input.form-control {
+    padding-right: 120px !important;
+    width:400px;
 }
-.search-box .inline-form .btn {
-    position: absolute;
-    top: 3.7px;
-    right: 3.7px;
+.search-box .btn {
+    position: absolute !important;
+    top: 2.5px !important;
+    right: 2.5px !important;
 }

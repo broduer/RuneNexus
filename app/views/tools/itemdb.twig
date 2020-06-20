@@ -2,16 +2,22 @@
 
 {% block content %}
 
-<div class="container" style="margin-top:-30px;">
+<div class="container" style="margin-top:-30px;" id='search'>
     <div class="row">
         <div class="col-sm-12">
             <div class="card border-0 shadow-sm mb-3">
                 <div class="card-body">
-                    <div class="search-box">
+                    <div class="search-box d-inline-block mr-2">
                         <form action="{{ url('tools/itemdb') }}" method="post" class="form-inline" id="searchform">
-                            <input type="text" class="form-control" name="search" placeholder="search by item name">
+                            <input type="text" class="form-control rounded-pill pl-4" 
+                                name="search" id="search"
+                                placeholder="search by item name">
                             <input type="submit" class="btn btn-primary rounded-pill" value="search">
                         </form>
+                    </div>
+
+                    <div class="d-none" id="loader">
+                        <i class="fad fa-spinner fa-pulse"></i> Loading...
                     </div>
                 </div>
             </div>
@@ -20,20 +26,14 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <div class="card border-0 shadow-sm" id="results">
-                <div class="card-body">
-                    <i class="fad fa-spinner fa-pulse"></i> Loading...
-                </div>
-            </div>
+            <div id="results"></div>
         </div>
     </div>
 </div>
 
 <script>
 $(document).ready(function() {
-
-});
-    /*let page = 1;
+    let page   = 1;
     let search = '';
     let locked = true;
 
@@ -54,7 +54,7 @@ $(document).ready(function() {
     });
 
     $(document).on('click', '#pageBtn', function(event) {
-        event.preventDefault();
+        //event.preventDefault();
 
         if (locked) {
             return;
@@ -66,13 +66,17 @@ $(document).ready(function() {
     });
 
     function loadItems(search, page) {
-        $.post("{{ url('tools/search') }}", {
+        $('#loader').addClass("d-inline-block").removeClass("d-none");
+
+        $.post("{{ url('tools/itemdb/search') }}", {
             search: search,
             page: page
         }, function(data) {
+            $('#loader').removeClass("d-inline-block").addClass("d-none");
             $('#results').html(data);
             locked = false;
         });
-    }*/
+    }
+});
 </script>
 {%  endblock %}

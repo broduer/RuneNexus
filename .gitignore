@@ -19,3 +19,4 @@ app/crons/cron.log
 crons/cron.log
 sitemap.xml
 robots.txt
+**/*.lock

@@ -1,40 +1,51 @@
 <?php
     include "cron_init.php";
-    include DOC_ROOT.'/../app/plugins/ServerPing.php';
     
-    $online  = 0;
-    $offline = 0;
-    $updated = 0;
+$delay = 1800; // 30 minutes in between runs.
+$lock  = new CronLock("status_cron", $delay);
 
-    writeLog("Started server status update...");
+if ($lock->isLocked()) {
+    exit;
+}
 
-    $startTime = microtime(true);
+$lock->writeLock();
 
-    $servers = Servers::select([
-        'id', 'title', 'is_online', 'server_ip', 'server_port', 'last_ping'
-    ])->where('server_ip', '!=', null)->get();
-    
-    foreach ($servers as $server) {
-        if (!$server->server_ip || !filter_var($server->server_ip, FILTER_VALIDATE_IP)) {
-            $server->is_online = 0;
-            $server->ping = -1;
-            $server->last_ping = time();
-            $server->save();
-            continue;
-        }
+include DOC_ROOT.'/../app/plugins/ServerPing.php';
 
-        $ping = new ServerPing();
-        $ping->setAddress($server->server_ip)->setPort($server->server_port);
-        $time = $ping->connect();
+$online  = 0;
+$offline = 0;
+$updated = 0;
 
-        $server->is_online = $time != -1;
-        $server->ping = $time;
+writeLog("Started server status update...");
+
+$startTime = microtime(true);
+
+$servers = Servers::select([
+    'id', 'title', 'is_online', 'server_ip', 'server_port', 'last_ping'
+])->where('server_ip', '!=', null)->get();
+
+foreach ($servers as $server) {
+    if (!$server->server_ip || !filter_var($server->server_ip, FILTER_VALIDATE_IP)) {
+        $server->is_online = 0;
+        $server->ping = -1;
         $server->last_ping = time();
         $server->save();
-        $updated++;
+        continue;
     }
 
-    $endTime = microtime(true);
-    $elapsed = number_format($endTime - $startTime, 4);
+    $ping = new ServerPing();
+    $ping->setAddress($server->server_ip)->setPort($server->server_port);
+    $time = $ping->connect();
 
-    writeLog("Updated $updated server statuses. Executed in ".$elapsed."s!");
+    $server->is_online = $time != -1;
+    $server->ping = $time;
+    $server->last_ping = time();
+    $server->save();
+    $updated++;
+}
+
+$endTime = microtime(true);
+$elapsed = number_format($endTime - $startTime, 4);
+
+writeLog("Updated $updated server statuses. Executed in ".$elapsed."s!");
+$lock->writeLock(); // write lock again so next one is delayed

@@ -12,8 +12,6 @@ class ToolsController extends Controller {
         $search = $this->request->getPost("search", "string");
         $found  = [];
 
-        $this->debug($data);
-        
         if ($search != null && $search != '') {
             foreach ($data as $item) {
                 $itemName = $item['name'];

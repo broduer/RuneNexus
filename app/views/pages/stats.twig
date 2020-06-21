@@ -84,6 +84,7 @@
 {% include 'chart_config.twig' %}
 
 <script>
+$(document).ready(function() {
     let canvas  = document.getElementById("voteChart"),
     context = canvas.getContext('2d')
     cdata = {
@@ -156,6 +157,7 @@
             }
         });
     }
+});
 </script>
 
 {%  endblock %}

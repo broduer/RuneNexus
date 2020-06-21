@@ -2,7 +2,7 @@
 include "cron_init.php";
 
 $delay = 600; // 10 minutes in between runs.
-$lock  = new CronLock("votes_cron", $delay);
+$lock  = new CronLock("reset_cron", $delay);
 
 if ($lock->isLocked()) {
     exit;

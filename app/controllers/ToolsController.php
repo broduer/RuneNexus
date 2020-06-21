@@ -26,13 +26,6 @@ class ToolsController extends Controller {
         $pageNum   = $this->request->getPost("page", "int");
         $paginator = (new Paginator($found, $pageNum, 20))->paginate();
         $results   = $paginator->getResults();
-
-        foreach($results['items'] as $item) {
-            if (!file_exists('public/img/items/'.$item['id'].'.png')) {
-                $this->getImage($item['id']);
-            }
-        }
-
         $this->set("results", $results);
     }
 

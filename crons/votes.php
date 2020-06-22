@@ -1,6 +1,9 @@
 <?php
+echo 'yeet';
 $start = microtime(true);
 include "cron_init.php";
+
+echo $_SERVER['DOCUMENT_ROOT'];
 
 $delay = 1800; // 30 minutes in between runs.
 $lock  = new CronLock("votes_cron", $delay);

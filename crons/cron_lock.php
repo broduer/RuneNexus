@@ -8,7 +8,7 @@ class CronLock {
     private $file_path;
 
     public function __construct($name, $delay = (60 * 60 * 1)) {
-        $this->file_path = "cron_locks/".strtolower($name).".lock";
+        $this->file_path =  DOC_ROOT."/cron_locks/".strtolower($name).".lock";
         $this->delay = $delay;
     }
 
@@ -26,7 +26,7 @@ class CronLock {
     }
 
     public function setFile($file_path) {
-        $this->file_path = "cron_locks/".strtolower($file_path).".lock";
+        $this->file_path =  DOC_ROOT."/cron_locks/".strtolower($file_path).".lock";
     }
 
     public function writeLock() {

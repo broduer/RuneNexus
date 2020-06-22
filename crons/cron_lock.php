@@ -30,9 +30,7 @@ class CronLock {
     }
 
     public function writeLock() {
-        $file = fopen($this->file_path, 'w');
-        fwrite($file, json_encode(['last_write' => time()]));
-        fclose($file);
+        file_put_contents($this->file_path, json_encode(['last_write' => time()]));
     }
 
 }

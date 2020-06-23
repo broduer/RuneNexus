@@ -103,6 +103,10 @@ class Template extends FilesystemLoader {
                 return Functions::elapsed($int);
             }));
 
+            $twig->addFunction(new \Twig\TwigFunction('timeLeft', function ($int) {
+                return Functions::getTimeLeft($int);
+            }));
+
             return $twig->load($path . '.twig');
         } catch (/*LoaderError|RuntimeError|SyntaxError*/Exception $e) {
             return null;

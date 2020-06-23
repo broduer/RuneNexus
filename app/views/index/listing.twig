@@ -1,5 +1,5 @@
 <div class="card border-0 shadow-sm overflow-hidden mb-2">
-    <div class="card-header bg-gradient-primary text-white py-3">
+    <div class="card-header bg-default text-white py-3">
         Runescape Private Servers
     </div>
 
@@ -97,13 +97,13 @@
                     </div>
                     <div class="pr-1">
                         <a href="{{ url('vote/'~server_url) }}" rel="nofollow"
-                            data-id="{{ server.id }}" class="btn btn-primary vote-btn">
+                            data-id="{{ server.id }}" class="btn btn-default vote-btn">
                             Vote
                         </a>
                     </div>
                     <div class="">
                         <a href="{{ server.website }}" target="_blank" rel="nofollow"
-                            data-id="{{ server.id }}" class="btn btn-primary float-right {{ server.website ? '' : 'disabled' }}">
+                            data-id="{{ server.id }}" class="btn btn-default float-right {{ server.website ? '' : 'disabled' }}">
                         <i class="far fa-link"></i></a>
                     </div>
                 </div>

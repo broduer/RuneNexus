@@ -283,11 +283,12 @@ a.banner-img {
 
 .status {
     display: block;
-    width: 10px;
-    height: 10px;
+    width: 11px;
+    height: 11px;
+    margin-top: 4px;
+    float: left; 
     border-radius: 50%;
     background-color: #333;
-    line-height: 1;
 }
 
 .status.status-offline  {
@@ -454,4 +455,36 @@ table.blur-table tr {
     position: absolute !important;
     top: 2.5px !important;
     right: 2.5px !important;
+}
+.status-badge {
+    background-color: transparent;
+    padding-left: 13px;
+    position: relative;
+}
+.badge-danger {
+    color: rgba(247, 86, 118, 1) !important;
+}
+.badge-success.status-badge:before {
+    content: ' ';
+    position:absolute;
+    left:0;
+    top:4px;
+    border-radius: 50%;
+    width:9px;
+    height:9px;
+    background-color:#1aae6f;
+    animation: pulse-green 1.5s infinite;
+
+}
+.badge-danger.status-badge:before {
+    content: ' ';
+    position:absolute;
+    left:0;
+    top:4px;
+    border-radius: 50%;
+    width:9px;
+    height:9px;
+    background-color:rgba(247, 86, 118, 1);
+    animation: pulse-red 1.5s infinite;
+
 }

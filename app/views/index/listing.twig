@@ -61,31 +61,17 @@
                 {% endif %}
             </td>
 
-            <td class="d-none d-lg-table-cell small" id="server-ping" data-server="{{ server.id }}">
-
-                {% if server.ping >= 0 and server.ping <= 100  %}
-                <i class="fad fa-signal-alt text-success fa-fw"></i>
-                {% endif %}
-                
-                {% if server.ping > 100 and server.ping <= 300  %}
-                <i class="fad fa-signal-alt-3 text-warning fa-fw"></i>
-                {% endif %}
-
-                {% if server.ping > 300 and server.ping <= 400  %}
-                <i class="fad fa-signal-alt-2 text-danger fa-fw"></i>
-                {% endif %}
-
-                {% if server.ping > 500 %}
-                <i class="fad fa-signal-alt-1 text-danger fa-fw"></i>
-                {% endif %}
-
-
+            <td class="d-none d-lg-table-cell small">
                 {% if server.ping == -1  %}
-                    <i class="fad fa-signal-alt-1 text-muted fa-fw"></i>
+                <span class="badge badge-danger status-badge"
+                    data-toggle="tooltip" data-title="{{ elapsed(server.last_ping) }}">
+                    Offline
+                </span>
                 {% else %}
-                    <span data-toggle="tooltip" data-title="{{ elapsed(server.last_ping) }}">
-                        {{ server.ping }}
-                    </span>
+                <span class="badge badge-success status-badge" 
+                    data-toggle="tooltip" data-title="{{ elapsed(server.last_ping) }}">
+                    Online
+                </span>
                 {% endif %}
             </td>
 
@@ -120,8 +106,7 @@
 </div>
 
 <p class="small text-muted">
-    * Ping is relative to the server, not yourself, and may not be accurate depending on your location.<br>
-    ** Status updates occur every 30 minutes on the clock. (ie 9, 9:30, 10, 10:30, etc.)
+    Status updates occur every 30 minutes on the clock. (ie 9, 9:30, 10, 10:30, etc.)
 </p>
 
 {% set totalPages = servers.lastPage() %}
@@ -197,8 +182,13 @@
 
 <script>
 $(document).ready(function() {
+    let locked = false;
+
     $('.vote-btn').click(function(event) {
         event.preventDefault();
+
+
+        locked = true;
         
         let btn = $(this);
         let txt = $(this).text();
@@ -207,7 +197,7 @@ $(document).ready(function() {
         btn.html("<i class=\"fad fa-spinner fa-pulse\"></i>");
 
         btn.addClass("disabled");
-        btn.removeClass("btn-success btn-danger").addClass("btn-primary");
+        btn.removeClass("btn-success btn-danger").addClass("btn-default");
 
         grecaptcha.ready(function() {
             grecaptcha.execute("{{ recaptcha_key }}", {
@@ -230,18 +220,20 @@ $(document).ready(function() {
                             votecnt.html(votes);
                         }
                         
-                        btn.removeClass("btn-primary btn-danger btn-success")
+                        btn.removeClass("btn-default btn-danger btn-success")
                             .addClass("btn-"+(json.success ? 'success' : 'danger'));
         
                         btn.html("<i class=\"fal fa-"+(json.success ? "check" : "times")+" fa-fw\"></i>");
         
                         setTimeout(function() {
-                            btn.removeClass("btn-success btn-danger disabled")
-                                .addClass("btn-primary");
+                            btn.removeClass("btn-default btn-danger disabled")
+                                .addClass("btn-default");
                             btn.html("Vote");
+                            locked = false;
                         }, 1000);
                     },
                     error: function(data) {
+                        locked = false;
                         console.log(data.responseText);
                     }
                 });

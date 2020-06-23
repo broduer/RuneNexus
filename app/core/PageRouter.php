@@ -217,6 +217,13 @@ class PageRouter extends Router {
         $this->all('tools/itemdb/search', function() {
             return $this->setRoute('tools', 'search');
         });
+
+        /**
+         * Admin
+         */
+        $this->all('admin', function() {
+            return $this->setRoute('admin', 'index');
+        });
     }
 
     public function setRoute($controller, $method, $params = []) {

@@ -38,7 +38,8 @@ class LoginController extends Controller {
                     'username'      => $me['username'],
                     'email'         => $me['email'],
                     'avatar'        => $me['avatar'],
-                    'roles'         => ['Member']
+                    'roles'         => ['Member'],
+                    'join_date'     => time()
                 ]
             );
 

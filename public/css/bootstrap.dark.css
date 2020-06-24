@@ -262,3 +262,13 @@ a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-prima
     border-color: #6a81ff;
     background-color: #6a81ff;
 }
+.border-left {
+        border-left: .0625rem solid rgba(255,255,255,0.05)!important;
+}
+
+.popover {
+    background-color: #36393F;
+}
+.bs-popover-auto[x-placement^=right]>.arrow::after, .bs-popover-right>.arrow::after {
+    border-right-color: #36393F;
+}

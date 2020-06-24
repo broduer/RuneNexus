@@ -488,3 +488,10 @@ table.blur-table tr {
     animation: pulse-red 1.5s infinite;
 
 }
+.popover {
+    min-width:400px !important;
+    line-height: 1em;
+}
+.bs-popover-auto[x-placement^=right]>.arrow, .bs-popover-right>.arrow {
+    
+}

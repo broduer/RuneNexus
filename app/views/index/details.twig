@@ -266,7 +266,7 @@ $(document).ready(function() {
 
     function getChartData(days) {
         $.ajaxq('VoteQueue', {
-            url: 'https://api.rune-nexus.com/graph',
+            url: 'https://api.rune-nexus.com/server/graph',
             data: {
                 days: days,
                 server: "{{ server.id }}"

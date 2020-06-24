@@ -492,6 +492,6 @@ table.blur-table tr {
     min-width:400px !important;
     line-height: 1em;
 }
-.bs-popover-auto[x-placement^=right]>.arrow, .bs-popover-right>.arrow {
-    
+.text-default {
+    color: #3c4d69 !important;
 }

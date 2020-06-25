@@ -2,8 +2,14 @@
     <div class="container">
         <div class="row row-grid align-items-center">
             <div class="col-lg-6">
-                <h2 class="text-primary mb-0">Like this project?</h2>
-                <p class="mb-0">Fork us on Github!</p>
+                <h2 class="text-primary mb-0">
+                    RuneNexus
+                </h2>
+                <p class="mb-0">
+                    RuneNexus is a new, modern, and effective RuneScape private server toplist. Easily
+                    find all the new and best RSPS out there, or join us today and start advertising your
+                    private server!
+                </p>
             </div>
 
             <div class="col-lg-6 btn-wrapper text-center text-lg-right mt-sm-4 mt-lg-0">
@@ -21,16 +27,16 @@
         <div class="row align-items-center justify-content-md-between">
             <div class="col-md-6">
                 <div class="copyright">
-                    © 2020 <a href="https://rune-nexus.com" class="text-primary" target="_blank">RuneNexus</a>.
+                    &copy; {{ time()|date("Y") }} 
+                    <a href="https://rune-nexus.com" 
+                        class="text-primary" target="_blank">RuneNexus</a> | All Rights Reserved.
                 </div>
             </div>
             <div class="col-md-6">
                 <ul class="nav nav-footer justify-content-end">
+                    
                     <li class="nav-item">
-                        <a href="" class="nav-link">Our Team</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link">About Us</a>
+                        <a href="{{ url('stats') }}" class="nav-link">Statistics</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ url('terms') }}" class="nav-link">Terms of Service</a>

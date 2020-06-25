@@ -73,6 +73,7 @@
     </div>
 </div>
 
+{#
 <div class="modal" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content bg-dark">
@@ -95,6 +96,7 @@
         </div>
     </div>
 </div>
+#}
 
 {% set recaptcha_key = constant('recaptcha')['public'] %}
 
@@ -102,9 +104,9 @@
 <script src="{{ url('public/js/rsfacts.js')}}"></script>
 
 <script>
-    setTimeout(function() {
+    /*setTimeout(function() {
         $('#videoModal').modal('show');
-    }, 1500);
+    }, 1500);*/
 
     $('.vote').click(function(event) {
         event.preventDefault();

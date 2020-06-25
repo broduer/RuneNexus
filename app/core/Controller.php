@@ -109,6 +109,7 @@ class Controller {
         
         $this->set("theme", $darkMode ? "dark" : "light");
         $this->set("controller", $controller);
+        $this->set("action", $action);
         $this->set("route", $this->router->getCanonical());
         return true;
     }

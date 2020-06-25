@@ -22,6 +22,11 @@ body {
 a.text-primary:hover {
     color: #8294ff !important;
 }
+.dropdown-item.active, .dropdown-item:active {
+    text-decoration: none;
+    color: #fff;
+    background-color: #3c4d69;
+}
 .navbar-dark .navbar-nav .nav-link {
     font-family: "OpenSans-Regular" !important;
 }

@@ -63,7 +63,7 @@
                 <div class="card-header bg-{{ theme == "dark" ? "transparent" : "white" }} py-3">
                     My Servers
                 </div>
-                <table class="table table-hover mb-0">
+                <table class="table mb-0">
                     <thead class="small text-muted border-0 bg-light">
                         <tr>
                             <th class="border-0 py-2 text-right">id</th>
@@ -94,7 +94,7 @@
                             {{ server.votes }}
                         </td>
                         <td class="text-right">
-                            <a href="{{ url('servers/edit/'~seo) }}" class="btn btn-outline-primary btn-sm">
+                            <a href="{{ url('servers/edit/'~seo) }}" class="btn btn-outline-default btn-sm">
                                 Edit
                             </a>
                             <a href="{{ url('servers/delete/'~seo) }}" class="btn btn-danger btn-sm">

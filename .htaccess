@@ -1,5 +1,6 @@
 Options +FollowSymLinks
 RewriteEngine On
+Header set Cache-Control "max-age=2628000, public"
 
 RewriteCond %{HTTP_HOST} ^www.rune-nexus.com [NC]
 RewriteRule ^(.*)$ https://rune-nexus.com/$1 [L,R=301]

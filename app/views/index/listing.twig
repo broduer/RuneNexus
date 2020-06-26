@@ -75,7 +75,8 @@
             </td>
 
             <td class="text-right">
-                {% set btnclass = server.premium_expires > time() and theme == "dark" ? 'btn-primary' : 'btn-default' %}
+                {% set btnclass = server.premium_expires > time() 
+                    and theme == "dark" ? 'btn-primary' : 'btn-default' %}
 
                 <div class="d-flex align-items-center justify-content-end">
                     <div class="pr-3">
@@ -84,18 +85,18 @@
                     </div>
                     <div class="pr-1">
                         <a href="{{ url('vote/'~server_url) }}" rel="nofollow"
-                            data-id="{{ server.id }}" class="btn {{btnclass}} vote-btn">
+                            data-id="{{ server.id }}" class="btn {{ btnclass }} vote-btn">
                             Vote
                         </a>
                     </div>
                     <div class="">
                         <a href="{{ server.website }}" target="_blank" rel="nofollow"
-                            data-id="{{ server.id }}" class="btn {{btnclass}} float-right {{ server.website ? '' : 'disabled' }}">
+                            data-id="{{ server.id }}" 
+                            class="btn float-right {{ server.website ? '' : 'disabled' }}">
                         <i class="far fa-link"></i></a>
                     </div>
                 </div>
             </td>
-            
         </tr>
         {% set start_rank = start_rank + 1 %}
         {% else %}

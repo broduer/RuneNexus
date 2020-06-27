@@ -102,10 +102,14 @@ class Controller {
             $this->set("hide_sponsor", true);
         }
 
+        $http_host = $_SERVER['HTTP_HOST'];
+        $sub_dom   = explode('.', $http_host); 
+        $is_mobile = array_shift($sub_dom) == "mobile";
         $meta = $this->getPageMeta($controller, $action);
 
         $this->set("page_title", $meta['title']);
         $this->set("meta_info", $meta['meta']);
+        $this->set("is_mobile", $is_mobile);
         
         $this->set("theme", $darkMode ? "dark" : "light");
         $this->set("controller", $controller);

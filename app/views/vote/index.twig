@@ -100,14 +100,14 @@
 
 {% set recaptcha_key = constant('recaptcha')['public'] %}
 
-<script src="https://www.google.com/recaptcha/api.js?render={{ recaptcha_key }}"></script>
+<script src="https://www.google.com/recaptcha/api.js?render={{ recaptcha_key }}" defer async></script>
 <script src="{{ url('public/js/rsfacts.js')}}"></script>
 
 <script>
     /*setTimeout(function() {
         $('#videoModal').modal('show');
     }, 1500);*/
-
+document.addEventListener('DOMContentLoaded', function( event) {
     $('.vote').click(function(event) {
         event.preventDefault();
         
@@ -162,9 +162,8 @@
                 });
             });
         });
-
-        
     });
+});
 </script>
 
 {%  endblock %}

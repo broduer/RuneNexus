@@ -1,6 +1,7 @@
 <div id="paypal-button-container"></div>
 
 <script>
+    
     var FUNDING_SOURCES = [
         paypal.FUNDING.PAYPAL
     ];
@@ -45,7 +46,7 @@
             },
 
             onApprove: function(data, actions) {
-                statusBlock.removeClass("text-danger text-success")
+                $('#pp-notice').removeClass("text-danger text-success")
                     .html("<i class='fad fa-spinner fa-pulse'></i> Verifying...");
                     
                 return actions.order.get().then(function(orderDetails) {

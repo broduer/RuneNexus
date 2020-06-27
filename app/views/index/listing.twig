@@ -183,7 +183,7 @@
 <script src="https://www.google.com/recaptcha/api.js?render={{ recaptcha_key }}" defer></script>
 
 <script>
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function(event) {
     let locked = false;
 
     $('.vote-btn').click(function(event) {
@@ -201,10 +201,10 @@ $(document).ready(function() {
         btn.addClass("disabled");
         btn.removeClass("btn-success btn-danger").addClass("btn-default");
 
-        grecaptcha.ready(function() {
+       /* grecaptcha.ready(function() {
             grecaptcha.execute("{{ recaptcha_key }}", {
                 action: 'homepage'
-            }).then(function(token) {
+            }).then(function(token) {*/
                 $.ajaxq('VoteQueue', {
                     url: '{{ url("servers/addvote") }}',
                     data: {
@@ -239,8 +239,8 @@ $(document).ready(function() {
                         console.log(data.responseText);
                     }
                 });
-            });
-        });
+            /*});
+        });*/
     });
 });
 </script>

@@ -276,9 +276,6 @@ a.banner-img {
     .status-col {
         display: none !important;
     }
-    .vote-btn {
-        display: none !important;
-    }
 }
 
 @media(min-width: 767px) {

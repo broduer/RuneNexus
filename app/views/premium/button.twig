@@ -61,7 +61,7 @@
                             if (!json.success) {
                                 modal.find("#content").html(json.message);
                                 modal.modal('show');
-                                statusBlock.html("");
+                                $('#pp-notice').html("");
                             } else {
                                 let pp_key = json.token;
 

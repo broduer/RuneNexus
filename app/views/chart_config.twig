@@ -2,7 +2,7 @@
 <script type="text/javascript" src="{{ url('public/js/chart.extension.js') }}" defer></script>
 
 <script>
-    $(document).ready(function() {
+    document.addEventListener('DOMContentLoaded', function(event) {
         Chart.plugins.register({
             beforeDraw: function(chartInstance) {
                 var ctx = chartInstance.chart.ctx;

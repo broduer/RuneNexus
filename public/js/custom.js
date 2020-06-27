@@ -1,4 +1,4 @@
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function(event) {
 
     $('[data-toggle="tooltip"]').tooltip();
 

@@ -172,7 +172,7 @@
 <script src="https://www.google.com/recaptcha/api.js?render={{ recaptcha_key }}" defer></script>
 
 <script>
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function(event) {
     $('.vote-btn').click(function(event) {
         event.preventDefault();
         

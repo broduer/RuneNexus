@@ -46,9 +46,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 $('#message').html(success ? 'Please wait while you are redirected' : 'An Error Occured');
     
                 if (success) {
-                   /* setTimeout(function() {
+                   setTimeout(function() {
                         window.location = "{{ constant('web_root') }}";
-                    }, 1500);*/
+                    }, 1500);
                 }
             });
         }, 1000);

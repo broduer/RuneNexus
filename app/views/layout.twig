@@ -12,7 +12,7 @@
     {% if meta_tags is defined and meta_tags is not empty %}
     <meta name="keywords" content="{{ meta_tags }}">
     {% else %}
-    <meta name="keywords" content="osrs,itemdb,toplist,topg,rspslist,best rsps,top rsps,mmo,runescape,rsps,rsps toplist,private,server,runelocus,rune-server,rune-list,runelist,top100,arena,everythingrs,moparscape,rsps-page,best-rsps,runescape private server">
+    <meta name="keywords" content="osrs,itemdb,toplist,rsps list,topg,rspslist,best rsps,top rsps,mmo,runescape,rsps,rsps toplist,private,server,runelocus,rune-server,rune-list,runelist,top100,arena,everythingrs,moparscape,rsps-page,best-rsps,runescape private server">
     {% endif %}
     {% if meta_info is defined and meta_info is not empty %}
     <meta name="description" content="{{ meta_info }}">
@@ -25,7 +25,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ stylesheet('argon.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ stylesheet('quill.snow.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ stylesheet('custom.css?v='~time()) }}" />
+    <link rel="stylesheet" type="text/css" href="{{ stylesheet('custom.css') }}" />
 
     {% if darkmode is defined and darkmode %}
     <link rel="stylesheet" type="text/css" href="{{ stylesheet('bootstrap.dark.css') }}" />
@@ -48,9 +48,9 @@
 
     {% include 'global/footer.twig' %}
 </body>
-<script type="text/javascript" src="{{ javascript('bootstrap.bundle.min.js') }}"></script>
+<script type="text/javascript" src="{{ javascript('bootstrap.bundle.min.js') }}" defer></script>
 <script type="text/javascript" src="{{ javascript('fontawesome.pro.min.js') }}" defer></script>
-<script type="text/javascript" src="{{ javascript('custom.js') }}"></script>
+<script type="text/javascript" src="{{ javascript('custom.js') }}" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js" defer></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121807671-2"></script>
 <script>

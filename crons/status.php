@@ -1,7 +1,7 @@
 <?php
     include "cron_init.php";
     
-$delay = 600; // minimum 10 minutes in between runs.
+$delay = 1800; // minimum 30 minutes in between runs.
 $lock  = new CronLock("status_cron", $delay);
 
 try {
@@ -9,6 +9,8 @@ try {
         exit;
     }
 
+    // write the lock so initially so it can't start again
+    // until it's finished
     $lock->writeLock();
 
     include DOC_ROOT.'/../app/plugins/ServerPing.php';

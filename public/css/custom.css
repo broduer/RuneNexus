@@ -138,6 +138,7 @@ ul {
 .subnav {
     margin-left:2rem !important;
 }
+
 .user_avatar {
     width: 40px;
     height:40px;
@@ -147,6 +148,7 @@ ul {
     border-radius: 50%;
     position: relative;
 }
+
 .user_avatar.large { 
     width: 64px;
     height:64px;
@@ -161,6 +163,7 @@ ul {
     border: solid 2px white;
     bottom: 0px;
 }
+
 .user_avatar.large .user-online {
     position: absolute;
     width: 18px;
@@ -506,7 +509,4 @@ table.blur-table tr {
 }
 .alert-info h4 {
     color: #11cdef !important;
-}
-.text-info {
-    
 }

@@ -25,6 +25,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ stylesheet('argon.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ stylesheet('quill.snow.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ stylesheet('all.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ stylesheet('custom.css') }}" />
 
     {% if darkmode is defined and darkmode %}
@@ -48,10 +49,9 @@
 
     {% include 'global/footer.twig' %}
 </body>
-<script type="text/javascript" src="{{ javascript('bootstrap.bundle.min.js') }}" defer></script>
-<script type="text/javascript" src="{{ javascript('fontawesome.pro.min.js') }}" defer></script>
-<script type="text/javascript" src="{{ javascript('custom.js') }}" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js" defer></script>
+<script defer type="text/javascript" src="{{ javascript('bootstrap.bundle.min.js') }}"></script>
+<script defer type="text/javascript" src="{{ javascript('custom.js') }}"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121807671-2"></script>
 <script>
     window.dataLayer = window.dataLayer || [];

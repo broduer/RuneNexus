@@ -86,14 +86,19 @@
                     {% if is_mobile == false %}
                     <div class="pr-1 d-none d-lg-flex">
                         <a href="{{ url('vote/'~server_url) }}" rel="nofollow"
+                            data-toggle="tooltip"
+                            data-title="Vote"
                             data-id="{{ server.id }}" class="btn {{ btnclass }} vote-btn">
-                            Vote
+                            {{ icon('check2-square', 16, 16) }}
                         </a>
                     </div>
                     {% endif %}
                     
                     <div class="">
-                        <a href="{{ server.website }}" target="_blank" rel="nofollow"
+                        <a href="{{ server.website }}" 
+                            data-toggle="tooltip"
+                            data-title="Website"
+                            target="_blank" rel="nofollow"
                             data-id="{{ server.id }}" 
                             class="btn btn-default float-right {{ server.website ? '' : 'disabled' }}">
                             {{ icon('link-45deg', 16, 16) }}
@@ -196,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         let txt = $(this).text();
         let id  = $(this).data("id");
         
-        btn.html('{{ icon("three-dots", 18, 18) }}');
+        btn.html('{{ icon("three-dots", 16, 16) }}');
 
         btn.addClass("disabled");
         btn.removeClass("btn-success btn-danger").addClass("btn-default");
@@ -226,13 +231,13 @@ document.addEventListener('DOMContentLoaded', function(event) {
                             .addClass("btn-"+(json.success ? 'success' : 'danger'));
         
                         btn.html(json.success
-                            ? '{{ icon("check", 18, 18) }}'
-                            : '{{ icon("x", 18, 18) }}');
+                            ? '{{ icon("check", 16, 16) }}'
+                            : '{{ icon("x", 16, 16) }}');
 
                         setTimeout(function() {
                             btn.removeClass("btn-default btn-danger disabled")
                                 .addClass("btn-default");
-                            btn.html("Vote");
+                            btn.html('{{ icon("check2-square", 16, 16) }}');
                             locked = false;
                         }, 1000);
                     },

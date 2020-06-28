@@ -1,7 +1,7 @@
 
 :root {
     /** Body */
-    --body-bg: #f3f3f3;
+    --body-bg: url('../img/header.jpg') top center no-repeat #f3f3f3;
     --font-color: #7c7c7c;
     --header-bg: url('../img/header.jpg') top center no-repeat #3c4d69;
 

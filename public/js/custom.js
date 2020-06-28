@@ -30,12 +30,12 @@ document.addEventListener('DOMContentLoaded', function(event) {
     $('#darkmode').click(function(event) {
         event.preventDefault();
 
-        let cookie = Cookies.get("darkmode");
+        let cookie = Cookies.get("theme");
 
         if (cookie) {
-            Cookies.remove("darkmode");
+            Cookies.remove("theme");
         } else {
-            Cookies.set("darkmode", 1, { expires: 365 });
+            Cookies.set("theme", "dark", { expires: 365 });
         }
 
         window.location.reload();

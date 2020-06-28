@@ -74,7 +74,7 @@
                         </tr>
                     </thead>
                     {% for server in servers %}
-                    {% set class = server.premium_expires > time() ? 'bg-primary' : '' %}
+                    {% set class = server.premium_expires > time() ? 'bg-premium' : '' %}
                     {% set seo = friendlyTitle(server.id~'-'~server.title) %}
 
                     <tr style="line-height:1em;" class="{{ class }}">

@@ -1,0 +1,67 @@
+
+:root {
+    /** Body */
+    --body-bg: #222;
+    --font-color: #7c7c7c;
+    --header-bg: url('../img/header.jpg') top center no-repeat #3c4d69;
+
+    /** Table Links */
+    --link-color: #DDD;
+    --link-hover-color: #FFF;
+
+    --nav-link-color: #DDD;
+    --nav-link-hover-color:#FFF;
+
+    /** buttons */
+    --btn-bg: #2f4871;
+    --btn-border:#2f4871;
+    --btn-font:#fff;
+
+    --btn-hover-bg: #3a598b;
+    --btn-hover-border: #3a598b;
+    --btn-hover-font: #FFF;
+
+    /** outline buttons */
+    --btn-outline-bg: #2f4871;
+    --btn-outline-border:#2f4871;
+    --btn-outline-font:#2f4871;
+
+    --btn-outline-hover-bg: #3a598b;
+    --btn-outline-hover-border: #3a598b;
+    --btn-outline-hover-font: #FFF;
+
+    /** Cards */
+    --card-bg: #252525;
+
+    /** Tables */
+    --table-font: #AFAFAF;
+    --table-header-bg: #292929;
+    --row-border-color: #292929;
+    --row-premium: rgba(94, 114, 238, 0.1);
+
+    --card-header: #2f4871;
+    --card-header-font: #FFF;
+
+    /** Misc Fonts */
+    --muted-color: #777;
+    --h-color:#FFF;
+
+    /** Badges */
+    --badge-primary-bg: rgba(0, 250, 250, 0.05);
+    --badge-primary-font: #00AAAA;
+
+    --badge-success-bg: rgba(0, 255, 0, 0.05);
+    --badge-success-font: #00AA00;
+
+    --badge-danger-bg: rgba(251,75,90,.1);
+    --badge-danger-font: #f80031;
+
+    /** forms */
+    --form-bg: rgba(0,0,0,0.2);
+    --form-border: rgba(255,255,255,0.05);
+    --form-font: #cad1d7;
+    
+    --form-focus-bg: rgba(0,0,0,0.2);
+    --form-focus-border: rgba(255,255,255,0.2);
+    --form-focus-font: #cad1d7;
+}

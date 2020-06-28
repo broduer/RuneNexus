@@ -82,24 +82,19 @@ class Controller {
         }
 
         $controller = $this->router->getController();
-        $action = $this->getActionName();
+        $action     = $this->getActionName();
+        $canAccess  = Security::canAccess($controller, $action, $roles);
+        
+        $themes     = ['dark', 'light'];
+        $theme      = $this->cookies->get("theme");
 
-        $canAccess = Security::canAccess($controller, $action, $roles);
+        if ($theme && in_array($theme, $themes)) {
+            $this->set("theme", $theme);
+        }
 
         if (!$canAccess) {
             $this->setView("errors/show401");
             return false;
-        }
-
-        $darkMode = false;
-
-        if ($this->cookies->has("darkmode")) {
-            $this->set("darkmode", true);
-            $darkMode = true;
-        }
-
-        if ($this->cookies->has("hide_sponsor")) {
-            $this->set("hide_sponsor", true);
         }
 
         $http_host = $_SERVER['HTTP_HOST'];
@@ -110,8 +105,7 @@ class Controller {
         $this->set("page_title", $meta['title']);
         $this->set("meta_info", $meta['meta']);
         $this->set("is_mobile", $is_mobile);
-        
-        $this->set("theme", $darkMode ? "dark" : "light");
+
         $this->set("controller", $controller);
         $this->set("action", $action);
         $this->set("route", $this->router->getCanonical());

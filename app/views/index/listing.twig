@@ -1,5 +1,5 @@
 <div class="card border-0 shadow-sm overflow-hidden mb-2">
-    <div class="card-header bg-default text-white py-3">
+    <div class="card-header py-3">
         Runescape Private Servers
     </div>
 
@@ -7,7 +7,7 @@
 
     <table class="table mb-0" style="line-height:1em;">
         <thead>
-            <tr class="bg-{{ theme == "dark" ? "dark" : "secondary" }}">
+            <tr>
                 <th class="text-center py-2 small border-0">Rank</th>
                 <th class="py-2 small border-0">Server</th>
                 <th class="py-2 small border-0 px-0 d-none d-lg-table-cell" 
@@ -18,7 +18,7 @@
         {% for server in servers.items() %}
         {% set server_url = friendlyTitle(server.id~' '~server.title) %}
 
-        {% set class = server.premium_expires > time() ? 'bg-primary' : '' %}
+        {% set class = server.premium_expires > time() ? 'bg-premium' : '' %}
 
         <tr id="server" class="{{ class }}">
             <td class="text-center rank-col">
@@ -26,38 +26,34 @@
             </td>
 
             <td class="py-4">
-                {% if server.revision %}
-                    <div class="badge badge-primary float-left mr-2">
-                        {{ server.revision }}
-                    </div>
-                {% endif %}
-
-                <a href="{{ url('details/'~server_url) }}">
-                    {% if server.title|length > 40 %}
-                    {{ substr(server.title, 0, 40)~'...' }}
-                    {% else %}
-                    {{ server.title }}
+                <p>
+                    {% if server.revision %}
+                        <span class="badge badge-primary">
+                            {{ server.revision }}
+                        </span>
                     {% endif %}
-                </a>
 
-                {% if server.banner_url %}
-                <a href="{{ url('details/'~server_url) }}" class="banner-img">
-                    <img data-src="{{ banner(server.banner_url) }}"
+                    <a href="{{ url('details/'~server_url) }}">
+                        
+                        {% if server.title|length > 40 %}
+                        {{ substr(server.title, 0, 40)~'...' }}
+                        {% else %}
+                        {{ server.title }}
+                        {% endif %}
+                    </a>
+                </p>
+                
+                <a href="{{ url('details/'~server_url) }}">
+
+                <img 
+                    {% if server.banner_url %}
+                    data-src="{{ banner(server.banner_url) }}"
+                    {% endif %}
                     src="{{ url('public/img/banner-loading.png') }}"
-                        id="banner"
-                        alt="{{ server.banner_url }}"
-                        style="margin-top:14px;"
-                        class="img-fluid rounded lazy">
+                    id="banner"
+                    alt="{{ server.banner_url }}"
+                    class="img-fluid rounded"/>
                 </a>
-                {% else %}
-                <a href="{{ url('details/'~server_url) }}" class="banner-img">
-                    <img src="{{ url('public/img/banner-'~theme~'.png') }}"
-                        id="banner"
-                        alt="{{ url('public/img/banner-'~theme~'.png') }}"
-                        style="margin-top:14px;"
-                        class="img-fluid rounded lazy">
-                </a>
-                {% endif %}
             </td>
 
             <td class="d-none d-lg-table-cell small">

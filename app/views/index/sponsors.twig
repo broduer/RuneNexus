@@ -1,5 +1,5 @@
 <div class="card border-0 shadow-sm overflow-hidden mb-3">
-    <div class="card-header bg-default text-white py-3">
+    <div class="card-header py-3">
         <h5 class="mb-0 text-white">Sponsored Servers</h5>
         <p class="text-white-50 mb-0 small">
             The best of the best. Even though paid, each server is vetted to 
@@ -14,14 +14,14 @@
             background-size: 1rem 1rem;
           }
     </style>
-    <table class="table mb-0" style="line-height:.7em;">
+    <table class="table mb-0">
         {% for sponsor in sponsors %}
         <tr id="server">
-            <td class="text-center rank-col">
+            <td class="text-center sponsor-star">
                 {{ icon('star', 18, 18) }}
             </td>
             <td class="py-4">
-                <a href="{{ sponsor.website }}" class="banner-img">
+                <a href="{{ sponsor.website }}">
                     <img
                         src="{{ url('public/img/banner-loading.png') }}" 
                         data-src="{{ banner(sponsor.banner_url) }}"
@@ -34,7 +34,7 @@
                 <div class="d-flex align-items-center justify-content-end">
                     <div class="pr-1">
                         <a href="{{ sponsor.discord_link }}" 
-                            class="btn btn-lg btn-link text-primary {{ sponsor.discord_link ? '' : 'disabled' }}" 
+                            class="btn btn-lg text-primary {{ sponsor.discord_link ? '' : 'disabled' }}" 
                             rel="nofollow">
                             {{ icon('discord', 24, 24) }}
                         </a>
@@ -53,13 +53,14 @@
 
         {% set remaining = (3 - sponsors|length) - 1 %}
 
+        {% if remaining > 0 %}
         {% for i in 0..remaining %}
         <tr id="server" class="{{ class }}">
             <td class="text-center rank-col">
                 {{ icon('star', 18, 18) }}
             </td>
             <td class="py-4">
-                <a href="#" class="banner-img">
+                <a href="#">
                     <img
                         src="{{ url('public/img/banner-loading.png') }}" 
                         id="banner"
@@ -70,7 +71,7 @@
             <td class="text-right">
                 <div class="d-flex align-items-center justify-content-end">
                     <div class="pr-1">
-                        <a href="#" class="btn btn-lg btn-link text-primary" rel="nofollow">
+                        <a href="#" class="btn btn-lg text-primary" rel="nofollow">
                             {{ icon('discord', 24, 24) }}
                         </a>
                     </div>
@@ -84,5 +85,6 @@
             </td>
         </tr>
         {% endfor %}
+        {% endif %}
     </table>
 </div>

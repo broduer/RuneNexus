@@ -16,4 +16,4 @@ foreach ($servers as $server) {
 
 $xml .= "</urlset>";
 
-file_put_contents(DOC_ROOT.'../servers-sitemap.xml', $xml);
+file_put_contents(DOC_ROOT.'/../servers-sitemap.xml', $xml);

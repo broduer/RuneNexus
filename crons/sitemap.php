@@ -3,8 +3,8 @@ include "cron_init.php";
 
 $servers = Servers::orderBy("id", "ASC")->get();
 
-$xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
-$xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">";
+$xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n";
+$xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\r\n";
 
 foreach ($servers as $server) {
    $seo_url = Functions::friendlyTitle($server->id.'-'.$server->title);
@@ -16,4 +16,4 @@ foreach ($servers as $server) {
 
 $xml .= "</urlset>";
 
-file_put_contents('../servers-sitemap.xml', $xml);
+file_put_contents(DOC_ROOT.'../servers-sitemap.xml', $xml);

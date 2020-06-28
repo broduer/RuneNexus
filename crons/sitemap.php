@@ -1,6 +1,6 @@
 <?php
 include "cron_init.php";
-header ("Content-Type:text/xml");
+
 $servers = Servers::orderBy("id", "ASC")->get();
 
 $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";

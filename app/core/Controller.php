@@ -109,6 +109,7 @@ class Controller {
         $this->set("controller", $controller);
         $this->set("action", $action);
         $this->set("route", $this->router->getCanonical());
+        $this->set("request_ip", $this->request->getAddress());
         return true;
     }
 

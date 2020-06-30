@@ -113,7 +113,6 @@
 <script>
 $(document).ready(function() {
     options.scales.xAxes = [{
-        barPercentage: 0,
         ticks: { display: true },
         gridLines: {
             color: "rgba(0, 0, 0, 0)",
@@ -138,27 +137,21 @@ $(document).ready(function() {
                     label: 'Members',
                     data: {{ members_data|json_encode|raw }},
                     borderColor: window.chartColors.red,
-                    backgroundColor:  window.chartColors.red,
-                    hoverBackgroundColor: window.chartColors.red,
-                    barWidth: 2,
+                    backgroundColor: window.chartColors.red,
                     fill: false
                 },
                 {
-                    label: 'Earned',
+                    label: 'Payments',
                     data: {{ payment_data|json_encode|raw }},
                     borderColor: window.chartColors.green,
-                    backgroundColor:  window.chartColors.green,
-                    hoverBackgroundColor: window.chartColors.green,
-                    barWidth: 2,
+                    backgroundColor: window.chartColors.green,
                     fill: false
                 },
                 {
                     label: 'Servers',
                     data: {{ servers_data|json_encode|raw }},
                     borderColor: window.chartColors.blue,
-                    backgroundColor:  window.chartColors.blue,
-                    hoverBackgroundColor: window.chartColors.blue,
-                    barWidth: 2,
+                    backgroundColor: window.chartColors.blue,
                     fill: false
                 }
             ]

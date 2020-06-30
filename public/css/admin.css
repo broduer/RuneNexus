@@ -70,7 +70,7 @@ body {
 
 .table td, .table th {
     vertical-align: middle;
-    border-top: 1px solid #e9ecef;
+    border-top: 1px solid #303030;
 }
 
 .card {
@@ -96,4 +96,32 @@ body {
 }
 pre {
     color: white !important;
+}
+
+.page-link, .page-item.disabled .page-link {
+    background-color: #252525;
+    border-color: #252525;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.175)!important;
+}
+
+.page-item.disabled .page-link {
+    color: #444;
+}
+
+.page-link:hover {
+    color: #8898aa;
+    background-color: #292929;
+    border-color: #292929;
+}
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #313131;
+    border-color: #313131;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.175)!important;
+}
+
+input.form-control {
+    background-color: rgba(0,0,0,0.5);
+    border-color: rgba(255,255,255,0.1);
 }

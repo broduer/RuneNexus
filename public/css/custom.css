@@ -9,7 +9,12 @@ body {
     font-family: "OpenSans-Regular" !important;
 }
 
-
+a:not(.nav-link):not(.dropdown-item):not(.page-link):not(.btn) {
+    color: var(--link-color);
+}
+.text-default {
+    color: var(--default-color) !important;
+}
 .navbar-dark .navbar-nav .nav-link {
     color: var(--nav-link-color) !important;
 }
@@ -92,7 +97,8 @@ body {
 .btn-default:hover, .btn-default:focus, .btn-default:active {
     background-color: var(--btn-hover-bg) !important;
     border-color: var(--btn-hover-border) !important;
-    color: var(--btn-font) !important;
+    color: var(--btn-hover-font) !important;
+    transform: none !important;
 }
 
 .btn-outline-default {
@@ -104,6 +110,7 @@ body {
     background-color: var(--btn-outline-hover-bg) !important;
     border-color: var(--btn-outline-hover-border) !important;
     color: var(--btn-outline-hover-font) !important;
+    transform: none !important;
 }
 
 .card {
@@ -142,30 +149,30 @@ p {
 }
 
 .badge-primary {
-    background-color:var(--badge-primary-bg);
-    color: var(--badge-primary-font);
+    background-color:var(--badge-primary-bg) !important;
+    color: var(--badge-primary-font) !important;
 }
 
 .badge-success {
-    background-color:var(--badge-success-bg);
-    color: var(--badge-success-font);
+    background-color:var(--badge-success-bg) !important;
+    color: var(--badge-success-font) !important;
 }
 
 .badge-danger {
-    background-color:var(--badge-danger-bg);
-    color: var(--badge-danger-font);
+    background-color:var(--badge-danger-bg) !important;
+    color: var(--badge-danger-font) !important;
 }
 
 input.form-control, textarea.form-control, select.form-control {
-    background-color: var(--form-bg);
-    color: var(--form-font);
-    border-color: var(--form-border);
+    background-color: var(--form-bg) !important;
+    color: var(--form-font) !important;
+    border-color: var(--form-border) !important;
 }
 
 input.form-control:focus, textarea.form-control:focus, select.form-control:focus {
-    background-color: var(--form-focus-bg);
-    color: var(--form-focus-font);
-    border-color: var(--form-focus-border);
+    background-color: var(--form-focus-bg) !important;
+    color: var(--form-focus-font) !important;
+    border-color: var(--form-focus-border) !important;
 }
 
 .ql-container.ql-snow {
@@ -194,4 +201,41 @@ input.form-control:focus, textarea.form-control:focus, select.form-control:focus
     line-height: 60px;
     text-align: center;
     color:var(--form-font);
+}
+
+.footer {
+    background-color: var(--footer-bg)!important;
+    color: var(--footer-font)!important;
+}
+
+.page-link {
+    color: var(--page-link-font);
+}
+.page-link, .page-item.disabled .page-link {
+    background-color: var(--page-link)!important;
+    border-color: var(--page-link)!important;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.175)!important;
+}
+
+.page-item.disabled .page-link {
+    color: var(--page-disabled-font)!important;
+}
+
+.page-link:hover {
+    color: var(--page-hover-font)!important;
+    background-color: var(--page-hover)!important;
+    border-color: var(--page-hover)!important;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: var(--page-active-font) !important;
+    background-color: var(--page-active)!important;
+    border-color: var(--page-active)!important;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.175)!important;
+}
+
+input.form-control {
+    background-color: rgba(0,0,0,0.5);
+    border-color: rgba(255,255,255,0.1);
 }

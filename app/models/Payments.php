@@ -31,9 +31,9 @@ class Payments extends Model {
 
         foreach ($query as $payment) {
             $date = date($dates['format'], $payment->date_paid);
-            $dates['chart'][$date] = number_format($dates['chart'][$date] + $payment->paid, 2);
+            $dates['chart'][$date] ++;
         }
-        
+
         return array_values($dates['chart']);
     }
 }

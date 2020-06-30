@@ -1,50 +1,51 @@
 
 :root {
     /** Body */
-    --body-bg: url('../img/header.jpg') top center no-repeat #222;
+    --body-bg: url('../img/header.jpg') top center no-repeat #232427;
     --font-color: #7c7c7c;
     --header-bg: url('../img/header.jpg') top center no-repeat #3c4d69;
 
+
     /** Table Links */
-    --link-color: #DDD;
-    --link-hover-color: #FFF;
+    --link-color: #90caf9;
+    --link-hover-color: #648DAE;
 
     --nav-link-color: #DDD;
     --nav-link-hover-color:#FFF;
 
     /** buttons */
-    --btn-bg: #2f4871;
-    --btn-border:#2f4871;
-    --btn-font:#fff;
+    --btn-bg: #90caf9;
+    --btn-border:#90caf9;
+    --btn-font:#2f4252;
 
-    --btn-hover-bg: #3a598b;
-    --btn-hover-border: #3a598b;
-    --btn-hover-font: #FFF;
+    --btn-hover-bg: #648DAE;
+    --btn-hover-border: #648DAE;
+    --btn-hover-font: #2f4252;
 
     /** outline buttons */
-    --btn-outline-bg: #2f4871;
-    --btn-outline-border:#2f4871;
-    --btn-outline-font:#2f4871;
+    --btn-outline-bg: transparent;
+    --btn-outline-border:#90caf9;
+    --btn-outline-font:#90caf9;
 
-    --btn-outline-hover-bg: #3a598b;
-    --btn-outline-hover-border: #3a598b;
-    --btn-outline-hover-font: #FFF;
+    --btn-outline-hover-bg: #90caf9;
+    --btn-outline-hover-border: #90caf9;
+    --btn-outline-hover-font: #2f4252;
 
     /** Cards */
-    --card-bg: #252525;
+    --card-bg: #292A2D;
+    --card-header: #292A2D;
+    --card-header-font: #FFF;
 
     /** Tables */
     --table-font: #AFAFAF;
-    --table-header-bg: #292929;
-    --row-border-color: #292929;
+    --table-header-bg: #2f3033;
+    --row-border-color: #323232;
     --row-premium: rgba(94, 114, 238, 0.1);
-
-    --card-header: #2f4871;
-    --card-header-font: #FFF;
 
     /** Misc Fonts */
     --muted-color: #777;
     --h-color:#FFF;
+    --default-color: #90caf9;
 
     /** Badges */
     --badge-primary-bg: rgba(0, 250, 250, 0.05);
@@ -57,11 +58,23 @@
     --badge-danger-font: #f80031;
 
     /** forms */
-    --form-bg: rgba(0,0,0,0.2);
-    --form-border: rgba(255,255,255,0.05);
+    --form-bg: #2e3033;
+    --form-border: #2c2d30;
     --form-font: #cad1d7;
     
-    --form-focus-bg: rgba(0,0,0,0.2);
-    --form-focus-border: rgba(255,255,255,0.2);
+    --form-focus-bg: #2e3033;
+    --form-focus-border: #2e3033;
     --form-focus-font: #cad1d7;
+
+    --footer-bg: #1f1f22;
+    --footer-font: #AAA;
+
+    --page-link: #272727;
+    --page-link-font: #aaa;
+    --page-hover: #313131;
+    --page-hover-font: #aaa;
+    --page-active: #83b8e4;
+    --page-active-font: #121212;
+    --page-disabled: #272727;
+    --page-disabled-font: #444;
 }

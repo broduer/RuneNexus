@@ -5,15 +5,8 @@
 <div class="main-content" id="panel">
     {% include "admin/header.twig" %}
 
-    <div class="header bg-default pb-8 pt-5 pt-md-8">
-        <div class="container-fluid">
-            <div class="header-body">
 
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid mt--7">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-xl-12">
                 <div class="card border-0 shadow-sm mb-3 overflow-hidden">
@@ -27,7 +20,7 @@
                                 <form method="post" action="{{ url('admin/payments') }}" 
                                     class="form-inline float-right">
                                     <div class="form-group my-0">
-                                        <input class="form-control form-control-sm border-0" 
+                                        <input class="form-control form-control-sm" 
                                             name="search" 
                                             placeholder="Search username..."
                                             value="{{ search is defined ? search : "" }}">

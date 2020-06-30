@@ -5,6 +5,7 @@
     --font-color: #7c7c7c;
     --header-bg: url('../img/header.jpg') top center no-repeat #3c4d69;
 
+    
     /** Table Links */
     --link-color: #3c4d69;
     --link-hover-color: #4b6185;
@@ -32,6 +33,8 @@
 
     /** Cards */
     --card-bg: #FFF;
+    --card-header: #3c4d69;
+    --card-header-font: #FFF;
 
     /** Tables */
     --table-font: #3c4d69;
@@ -39,17 +42,14 @@
     --row-border-color: #dee2e6;
     --row-premium: #FFEB99;
 
-    --card-header: #3c4d69;
-    --card-header-font: #FFF;
-
     /** Misc Fonts */
     --muted-color: #777;
     --h-color:#000;
+    --default-color: #90caf9; 
 
     /** Badges */
     --badge-primary-bg: rgba(0, 250, 250, 0.05);
     --badge-primary-font: #00AAAA;
-    
 
     --badge-success-bg: rgba(0, 255, 0, 0.1);
     --badge-success-font: #00AA00;
@@ -62,4 +62,20 @@
     --form-bg: #fff;
     --form-border: #cad1d7;
     --form-font: #8898aa;
+    
+    --form-focus-bg: #FFF;
+    --form-focus-border: rgba(50,151,211,.25);
+    --form-focus-font: #8898aa;
+
+    --footer-bg: #1f1f22;
+    --footer-font: #AAA;
+
+    --page-link: #FFF;
+    --page-link-font: #3c4d69;
+    --page-hover: #3c4d69;
+    --page-hover-font: #FFF;
+    --page-active: #3c4d69;
+    --page-active-font: #FFF;
+    --page-disabled: #272727;
+    --page-disabled-font: #AAA;
 }

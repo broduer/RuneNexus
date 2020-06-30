@@ -78,4 +78,8 @@
     --page-active-font: #FFF;
     --page-disabled: #272727;
     --page-disabled-font: #AAA;
+
+        /** Popover */
+        --popover-bg: #FFF;
+        --popover-font: #000;
 }

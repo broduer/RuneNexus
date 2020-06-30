@@ -69,7 +69,9 @@ a:not(.nav-link):not(.dropdown-item):not(.page-link):not(.btn) {
     vertical-align: middle;
     border-top: .0625rem solid var(--row-border-color);
 }
-
+.table thead th {
+    border-bottom: none !important;
+}
 .table thead tr {
     background-color: var(--table-header-bg) !important;
 }
@@ -111,6 +113,13 @@ a:not(.nav-link):not(.dropdown-item):not(.page-link):not(.btn) {
     border-color: var(--btn-outline-hover-border) !important;
     color: var(--btn-outline-hover-font) !important;
     transform: none !important;
+}
+
+.btn-link {
+    color: var(--btn-outline-font) !important;
+}
+.btn-link:hover, .btn-link:focus, .btn-link:active {
+    color: var(--btn-outline-font) !important;
 }
 
 .card {
@@ -238,4 +247,19 @@ input.form-control:focus, textarea.form-control:focus, select.form-control:focus
 input.form-control {
     background-color: rgba(0,0,0,0.5);
     border-color: rgba(255,255,255,0.1);
+}
+
+.popover {
+    background-color: var(--popover-bg) !important;
+    color: var(--popover-font) !important;
+    min-width: 300px;
+}
+.popover-body {
+    color: var(--popover-font) !important;
+}
+.popover .arrow:after {
+    border-right-color: var(--popover-bg) !important;
+}
+.border-left {
+    border-left: .0625rem solid var(--row-border-color) !important;
 }

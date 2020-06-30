@@ -84,7 +84,7 @@
 {% include 'chart_config.twig' %}
 
 <script>
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function(event) {
     let canvas  = document.getElementById("voteChart"),
     context = canvas.getContext('2d')
     cdata = {
@@ -93,10 +93,10 @@ $(document).ready(function() {
             datasets: [
                 {
                     label: 'Votes',
-                    borderColor: window.chartColors.purple,
-                    backgroundColor:  window.chartColors.purpleLight,
-                    hoverBackgroundColor: window.chartColors.purpleLight,
+                    borderColor: window.chartColors.blue,
+                    backgroundColor:  window.chartColors.blue,
                     barWidth: 2,
+                    fill: false
                 }
             ]
         },

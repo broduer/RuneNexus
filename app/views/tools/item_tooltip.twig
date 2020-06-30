@@ -1,31 +1,28 @@
-<div class="card mb-3 border-0">
-    <div class="card-body py-3 px-0">
-        <div class="d-flex align-items-center">
-            <div class="flex-fill px-3">
-                <img src="{{ url('public/img/items/'~item['id']~'.png') }}">
-            </div>
-            <div class="flex-fill w-100">
-                <h6 class="mb-0">{{ item['name'] }}</h6>
-                <small class="text-muted">{{ item['examine'] }}</small>
-            </div>
+
+<div class="py-3 px-0">
+    <div class="d-flex align-items-center">
+        <div class="flex-fill px-3">
+            <img src="{{ url('public/img/items/'~item['id']~'.png') }}">
+        </div>
+        <div class="flex-fill w-100">
+            <h6 class="mb-0">{{ item['name'] }}</h6>
+            <small class="text-muted">{{ item['examine'] }}</small>
         </div>
     </div>
 </div>
 
-<div class="card mb-3 border-0">
-    <div class="list-group">
-        <div class="list-group-item p-2">
-            Release Date: {{ item['release_date'] }}
-        </div>
-        <div class="list-group-item p-2">
-            Members: <i class="fal fa-fw fa-{{ item['members'] == 1 ? "check text-success" : "times text-danger" }}"></i>
-        </div>
-        <div class="list-group-item p-2">
-            Tradeable: <i class="fal fa-fw fa-{{ item['tradeable'] == 1 ? "check text-success" : "times text-danger" }}"></i>
-        </div>
-        <div class="list-group-item p-2">
-            Value: <i class="fal fa-coins fa-fw"></i> {{ item['cost']|number_format }}
-        </div>
+<div class="list-group list-group-flush mb-3">
+    <div class="list-group-item p-2 border-0 bg-transparent">
+        Release Date: {{ item['release_date'] }}
+    </div>
+    <div class="list-group-item p-2 border-0 bg-transparent">
+        Members: <i class="fal fa-fw fa-{{ item['members'] == 1 ? "check text-success" : "times text-danger" }}"></i>
+    </div>
+    <div class="list-group-item p-2  border-0 bg-transparent">
+        Tradeable: <i class="fal fa-fw fa-{{ item['tradeable'] == 1 ? "check text-success" : "times text-danger" }}"></i>
+    </div>
+    <div class="list-group-item p-2 border-0 bg-transparent">
+        Value: <i class="fal fa-coins fa-fw"></i> {{ item['cost']|number_format }}
     </div>
 </div>
 
@@ -147,4 +144,4 @@
 </div>
 {% endif %}
 
-<a href="{{ item['wiki_url'] }}" target="_blank" class="btn btn-block btn-default">View on Wiki</a>
+<a href="{{ item['wiki_url'] }}" target="_blank" class="btn btn-block btn-link">View on Wiki</a>

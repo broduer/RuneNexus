@@ -19,16 +19,40 @@ class AdminController extends Controller {
             ]
         ];
 
-        $chartData = Payments::getChartData();
+        $dates    = $this->getChartDates(30);
+        
+        $payments = Payments::getChartData($dates);
+        $members  = Users::getChartData($dates);
+        $servers  = Servers::getChartData($dates);
 
+        $this->set("chart_keys", array_keys($dates['chart']));
+        $this->set("payment_data", $payments);
+        $this->set("members_data", $members);
+        $this->set("servers_data", $servers);
         $this->set("data", $data);
-        $this->set("chart_keys", array_keys($chartData));
-        $this->set("chart_values", array_values($chartData));
         return true;
     }
 
+    public function getChartDates($dayLimit = 14, $format = "m.d") {
+        $start = strtotime(date("Y-m-d 00:00:00")." -$dayLimit days");
+        $end   = strtotime(date("Y-m-d 23:59:59"));
+
+        $data = [
+            'start'  => $start,
+            'format' => $format,
+            'chart'  => [],
+        ];
+
+        while($start < $end) {
+            $start += 86400; // increment by 1 day until we reach today
+            $date = date($format, $start);
+            $data['chart'][$date] = 0;
+        }
+
+        return $data;
+    }
+
     public function beforeExecute() {
-        $this->set("page_title", "Admin");
         return parent::beforeExecute();
     }
 

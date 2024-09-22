@@ -8,7 +8,7 @@
         "robthree/twofactorauth": "^1.6",
         "ext-json": "*",
 		"gilbitron/easycsrf": "^1.0",
-        "guzzlehttp/guzzle": "~7.9",
+        "guzzlehttp/guzzle": "~6.5",
 		"ezyang/htmlpurifier": "^4.12",
 		"illuminate/database": "^7.14",
 		"illuminate/pagination": "^7.14",

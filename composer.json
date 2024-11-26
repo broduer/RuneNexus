@@ -3,7 +3,7 @@
         "vendor-dir": "vendor"
     },
     "require": {
-        "twig/twig": "^2.0",
+        "twig/twig": "^3.11",
         "ecoal95/php-router": "^1.0",
         "robthree/twofactorauth": "^1.6",
         "ext-json": "*",
